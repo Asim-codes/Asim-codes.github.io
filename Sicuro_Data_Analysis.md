@@ -23,7 +23,7 @@ jupyter:
 FYP DATA ANALYSIS Section
 
 
-Initialize firebase`<h3>`{=html}
+Initialize firebase
 
 ``` python
 import firebase_admin
@@ -1090,7 +1090,7 @@ print("Mean Squared Error (MSE):", mse_RF)
 print("R² score:", r2_RF)
 ```
 
-::: {.output .stream .stdout}
+
     LINEAR REGRESSION
     RMSE_LR: 1.2787902846996444
     Mean Absolute Error (MAE): 1.062966702293544
@@ -1101,10 +1101,7 @@ print("R² score:", r2_RF)
     Mean Absolute Error (MAE): 0.8326944444444441
     Mean Squared Error (MSE): 0.9718556481481484
     R² score: 0.8958247847078721
-:::
-:::
 
-::: {.cell .code execution_count="30"}
 ``` python
 
 # extract the features and targets
@@ -1151,7 +1148,7 @@ print("Mean Squared Error (MSE):", mse_RF)
 print("R² score:", r2_RF)
 ```
 
-::: {.output .stream .stdout}
+
     LINEAR REGRESSION
     RMSE_LR: 0.6730550163766352
     Mean Absolute Error (MAE): 0.5476575960312353
@@ -1162,16 +1159,9 @@ print("R² score:", r2_RF)
     Mean Absolute Error (MAE): 0.09757870370370339
     Mean Squared Error (MSE): 0.015540234788359714
     R² score: 0.9966030656257614
-:::
-:::
+    
+After converting non-numeric values to numeric values
 
-::: {.cell .markdown}
-```{=html}
-<h3>After converting non-numeric values to numeric values</h3>
-```
-:::
-
-::: {.cell .code execution_count="31"}
 ``` python
 # extract the features and targets
 x = df_encoded[[
@@ -1244,7 +1234,6 @@ print("Mean Squared Error (MSE):", mse_RF)
 print("R² score:", r2_RF)
 ```
 
-::: {.output .stream .stdout}
     LINEAR REGRESSION
     RMSE_LR: 0.12590361863227206
     Mean Absolute Error (MAE): 0.09984682525271399
@@ -1255,5 +1244,4 @@ print("R² score:", r2_RF)
     Mean Absolute Error (MAE): 0.10219973544973526
     Mean Squared Error (MSE): 0.0168024370118417
     R² score: 0.996381272053682
-:::
-:::
+

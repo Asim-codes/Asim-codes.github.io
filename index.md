@@ -8,7 +8,7 @@
 <img src="images/dummy_thumbnail.jpg?raw=true"/>
 
 ---
-[Sicuro - A Data Driven Approach To Understand Mental Health Better](/pdf/sample_presentation.pdf)
+[Sicuro - A Data Driven Approach To Understand Mental Health Better](/Sicuro_Data_Analysis)
 <img src="images/dummy_thumbnail.jpg?raw=true"/>
 
 ---

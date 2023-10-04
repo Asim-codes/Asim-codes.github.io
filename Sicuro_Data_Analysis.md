@@ -869,22 +869,10 @@ L = sch.linkage(d, method='complete')
 sns.clustermap(corr_matrix, method='complete', metric='correlation', figsize=(10,10), cmap='coolwarm')
 ```
 
-::: {.output .execute_result execution_count="23"}
-    <seaborn.matrix.ClusterGrid at 0x1cd79490be0>
-:::
 
-::: {.output .display_data}
 ![](vertopal_8bce576911084d4680cebb3a1ba65c59/e4537139fe70018d52ce91731b6add464ebc3437.png)
-:::
-:::
 
-::: {.cell .markdown}
-```{=html}
-<h3>Pairwise correlation between two variables (numeric and non-numeric)</h3>
-```
-:::
-
-::: {.cell .code execution_count="24"}
+Pairwise correlation between two variables (numeric and non-numeric)
 ``` python
 
 import pandas as pd
@@ -907,13 +895,10 @@ print(codes)
 print('The correlation between Education Level and mood is : ', categorize_correlation(corr2), "(", corr2 , ")")
 ```
 
-::: {.output .stream .stdout}
+
     ['Secondary' 'Doctorate' 'Bachelors' 'Masters']
     The correlation between Education Level and mood is :  Moderately positive ( 0.5137839477571693 )
-:::
-:::
 
-::: {.cell .code execution_count="25"}
 ``` python
 import pandas as pd
 
@@ -932,14 +917,10 @@ print(codes3)
 print('The correlation between Ethnicity and mood is : ', categorize_correlation(corr3), "(", corr3 , ")")
 ```
 
-::: {.output .stream .stdout}
     ['Japanese', 'Indian', 'Chinese', 'Danish']
     Categories (4, object): ['Chinese', 'Danish', 'Indian', 'Japanese']
     The correlation between Ethnicity and mood is :  Weakly positive ( 0.372509752920904 )
-:::
-:::
 
-::: {.cell .code execution_count="26"}
 ``` python
 import pandas as pd
 
@@ -958,14 +939,11 @@ print(codes4)
 print('The correlation between Working industry and stress is : ', categorize_correlation(corr4),"(", corr4 , ")")
 ```
 
-::: {.output .stream .stdout}
+
     ['Technology', 'Finance', 'F&B', 'Aerospace', 'Healthcare', 'Student']
     Categories (6, object): ['Aerospace', 'F&B', 'Finance', 'Healthcare', 'Student', 'Technology']
     The correlation between Working industry and stress is :  No correlation ( -0.07978985123910241 )
-:::
-:::
 
-::: {.cell .code execution_count="27"}
 ``` python
 import pandas as pd
 
@@ -984,14 +962,10 @@ print(codes5)
 print('The correlation between maritial status and stress is : ', categorize_correlation(corr5), "(", corr5 , ")")
 ```
 
-::: {.output .stream .stdout}
     ['Separated', 'Single', 'Divorced']
     Categories (3, object): ['Divorced', 'Separated', 'Single']
     The correlation between maritial status and stress is :  No correlation ( 0.05494827379728323 )
-:::
-:::
 
-::: {.cell .code execution_count="28"}
 ``` python
 
 # extract the features and targets
@@ -1006,7 +980,7 @@ print(df_numeric['stress_avg'].head(1))
 print(df_numeric['mood_avg'].head(1))
 ```
 
-::: {.output .stream .stdout}
+
                                                   stress  \
     0  [1, 1, 3, 3, 1, 1, 1, 1, 2, 3, 3, 2, 2, 3, 1, ...   
 
@@ -1016,22 +990,11 @@ print(df_numeric['mood_avg'].head(1))
     Name: stress_avg, dtype: float64
     0    4.571429
     Name: mood_avg, dtype: float64
-:::
-:::
+    
+Testing and evaluating Linear Regression and Random Forest Regression
+Features: Personal particulars of users
+Target variable (prediction): Average mood level and average stress level
 
-::: {.cell .markdown}
-```{=html}
-<h3>Testing and evaluating Linear Regression and Random Forest Regression</h3>
-```
-```{=html}
-<p>Features: Personal particulars of users</p>
-```
-```{=html}
-<p>Target variable (prediction): Average mood level and average stress level</p>
-```
-:::
-
-::: {.cell .code execution_count="29"}
 ``` python
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression

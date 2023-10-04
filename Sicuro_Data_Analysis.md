@@ -19,20 +19,14 @@ jupyter:
   orig_nbformat: 4
 ---
 
-::: {.cell .markdown}
-```{=html}
-<h1>FYP DATA ANALYSIS Section</h1>
-```
-:::
 
-::: {.cell .markdown}
 ```{=html}
-<h3>
+FYP DATA ANALYSIS Section
 ```
+
+
 Initialize firebase`<h3>`{=html}
-:::
 
-::: {.cell .code execution_count="1"}
 ``` python
 import firebase_admin
 from firebase_admin import credentials
@@ -41,25 +35,13 @@ cred = credentials.Certificate("serviceAccountKey.json")
 firebase_admin.initialize_app(cred)
 ```
 
-::: {.output .execute_result execution_count="1"}
-    <firebase_admin.App at 0x1cd52df47c0>
-:::
-:::
-
-::: {.cell .code execution_count="2"}
 ``` python
 from firebase_admin import firestore
 db = firestore.client()
 ```
-:::
 
-::: {.cell .markdown}
-```{=html}
-<h3>Getting data from a particular document</h3>
-```
-:::
+Getting data from a particular document
 
-::: {.cell .code execution_count="3"}
 ``` python
 import pandas as pd
 import numpy as np
@@ -71,15 +53,10 @@ data = db.collection("Users").document().get()
 if data.exists:
     print(data.to_dict())
 ```
-:::
 
-::: {.cell .markdown}
-```{=html}
-<h3>Creating a test data, and pushing into firebase firestore </h3>
-```
-:::
+Creating a test data, and pushing into firebase firestore 
 
-::: {.cell .code execution_count="4"}
+
 ``` python
 #add documents
 import datetime

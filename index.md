@@ -4,7 +4,7 @@
 
 ### Category Name 1 
 
-[Stock Market Analysis: Predicting, Correlating, and Assessing Risk Through Machine Learning](/sample_page)
+[Stock Market Analysis: Predicting, Correlating, and Assessing Risk Through Machine Learning](/Stock_market_analysis)
 <img src="images/dummy_thumbnail.jpg?raw=true"/>
 
 ---

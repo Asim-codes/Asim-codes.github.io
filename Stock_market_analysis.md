@@ -47,7 +47,6 @@ data = yf.download(symbols,'2020-01-01','2023-09-01')
 print(data.head())
 ```
 
-::: {.output .stream .stdout}
                 Adj Close                                                Close  \
                      AAPL      GOOGL    JFU        META        MSFT       AAPL   
     Date                                                                         
@@ -538,16 +537,8 @@ plt.ylabel('Standard Deviation')
 plt.show()
 ```
 
-::: {.output .display_data}
-![](vertopal_cb190fcd92424760bbbf15f476a68436/dfc3c9a4d55c4314d89022b8a98577bcfbf36d28.png)
-:::
-:::
-
-::: {.cell .markdown id="zG0K_1841_nc"}
 **Volatility measure (need to update metrics)**
-:::
 
-::: {.cell .code colab="{\"base_uri\":\"https://localhost:8080/\"}" id="6AdZiGhfX085" outputId="e5d744ea-c68b-482c-8fb9-33ae29b965a5"}
 ``` python
 # Calculate daily returns and volatility for each stock symbol
 for symbol in symbols:
@@ -565,21 +556,14 @@ for symbol in symbols:
     else:
         print(symbol + " is very volatile.")
 ```
-
-::: {.output .stream .stdout}
     AAPL is very volatile.
     MSFT is very volatile.
     GOOGL is very volatile.
     META is very volatile.
     JFU is very volatile.
-:::
-:::
 
-::: {.cell .markdown id="BG4XG9b72HSn"}
 **Summary and data visualization**
-:::
 
-::: {.cell .code colab="{\"base_uri\":\"https://localhost:8080/\"}" id="ftQendMuK-M_" outputId="ae983f64-a0d6-421d-a4b3-ca5533f7dfb4"}
 ``` python
 # Summary statistics
 for symbol in symbols:
@@ -632,10 +616,7 @@ for symbol in symbols:
     50%     -0.004408
     75%      0.025286
     max      0.836842
-:::
-:::
 
-::: {.cell .code colab="{\"base_uri\":\"https://localhost:8080/\",\"height\":1000}" id="NSWaZuL2WOtM" outputId="abe40877-4f0b-498b-8df6-cf500f561a86"}
 ``` python
 # Plot closing prices over time
 for symbol in symbols:
@@ -645,28 +626,7 @@ for symbol in symbols:
     plt.show()
 ```
 
-::: {.output .display_data}
-![](vertopal_cb190fcd92424760bbbf15f476a68436/427c8c224446896eac826f48e4fa577c940fbf59.png)
-:::
 
-::: {.output .display_data}
-![](vertopal_cb190fcd92424760bbbf15f476a68436/e19d32397ed0983a6238a8cd60e6e9a93cedefb5.png)
-:::
-
-::: {.output .display_data}
-![](vertopal_cb190fcd92424760bbbf15f476a68436/f92539062414c83e723abde2f8a2b63410d741ee.png)
-:::
-
-::: {.output .display_data}
-![](vertopal_cb190fcd92424760bbbf15f476a68436/b49ca261c839aee02eb4a78d4ba889e8749d97a9.png)
-:::
-
-::: {.output .display_data}
-![](vertopal_cb190fcd92424760bbbf15f476a68436/890ecfe16706a235215176ee9ae0e511d4fbdae8.png)
-:::
-:::
-
-::: {.cell .code colab="{\"base_uri\":\"https://localhost:8080/\",\"height\":1000}" id="foI-EDd6K6Af" outputId="2bc4a01c-8dd6-47e7-ca3f-2da9ddd1ce50"}
 ``` python
 # Plot moving averages and RSI over time
 for symbol in symbols:
@@ -683,48 +643,7 @@ for symbol in symbols:
     plt.show()
 ```
 
-::: {.output .display_data}
-![](vertopal_cb190fcd92424760bbbf15f476a68436/67640483963d578966716567fa284432ccd604ef.png)
-:::
 
-::: {.output .display_data}
-![](vertopal_cb190fcd92424760bbbf15f476a68436/a637764225197055811c65db29520bb3e9dd05a4.png)
-:::
-
-::: {.output .display_data}
-![](vertopal_cb190fcd92424760bbbf15f476a68436/0b1168afbfa6be4d8499f2afdefbe864bca09796.png)
-:::
-
-::: {.output .display_data}
-![](vertopal_cb190fcd92424760bbbf15f476a68436/36c1ae416e6c45910967f44df8f9b68dc2435914.png)
-:::
-
-::: {.output .display_data}
-![](vertopal_cb190fcd92424760bbbf15f476a68436/1221c971e8cf5c56f1f449379ddde77220e4c5e4.png)
-:::
-
-::: {.output .display_data}
-![](vertopal_cb190fcd92424760bbbf15f476a68436/b81e6602812bdfd5b7545ec6591e612a63de1eea.png)
-:::
-
-::: {.output .display_data}
-![](vertopal_cb190fcd92424760bbbf15f476a68436/a05c145b044b7432b6df76006b6f89ba6a5f01d5.png)
-:::
-
-::: {.output .display_data}
-![](vertopal_cb190fcd92424760bbbf15f476a68436/7bb2897d6fbf3dda92c911d79fdce48369edde37.png)
-:::
-
-::: {.output .display_data}
-![](vertopal_cb190fcd92424760bbbf15f476a68436/e76886e86f7fc13a749e50c4fb1bd58af33e91d6.png)
-:::
-
-::: {.output .display_data}
-![](vertopal_cb190fcd92424760bbbf15f476a68436/07de018902aa90aa138e67857611b012efba3c0d.png)
-:::
-:::
-
-::: {.cell .code colab="{\"base_uri\":\"https://localhost:8080/\",\"height\":1000}" id="uX8Jo1V6K76Y" outputId="cb6daabd-de97-4d00-c56f-e6b039eb2485"}
 ``` python
 # Compare actual vs predicted prices
 for symbol in symbols:
@@ -742,23 +661,4 @@ for symbol in symbols:
     plt.show()
 ```
 
-::: {.output .display_data}
-![](vertopal_cb190fcd92424760bbbf15f476a68436/da0f62dd71edf1722cb91c553071be386323c2c7.png)
-:::
 
-::: {.output .display_data}
-![](vertopal_cb190fcd92424760bbbf15f476a68436/db38e969d208b11b9cda4110faa9f2c972abe3bf.png)
-:::
-
-::: {.output .display_data}
-![](vertopal_cb190fcd92424760bbbf15f476a68436/b4dbeab03ed6c13cbd883ed0c835dec6a65c9850.png)
-:::
-
-::: {.output .display_data}
-![](vertopal_cb190fcd92424760bbbf15f476a68436/79cf259e77c2dcbd40ea8e9b83d3b290f8e149fe.png)
-:::
-
-::: {.output .display_data}
-![](vertopal_cb190fcd92424760bbbf15f476a68436/77bb1b71c2250ccdb6d10b87ca965489a46851a9.png)
-:::
-:::

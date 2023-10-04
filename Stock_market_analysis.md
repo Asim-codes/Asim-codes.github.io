@@ -10,11 +10,10 @@ jupyter:
   nbformat_minor: 0
 ---
 
-::: {.cell .markdown id="W2QC0i0I01BM"}
-**Import libraries**
-:::
 
-::: {.cell .code id="3-QW_VBMNnuA"}
+**Import libraries**
+
+
 ``` python
 # Import necessary libraries
 import yfinance as yf
@@ -31,13 +30,11 @@ from datetime import timedelta
 import seaborn as sns
 from statsmodels.tsa.seasonal import seasonal_decompose
 ```
-:::
 
-::: {.cell .markdown id="gNVffeYu056b"}
+
+
 **Define the tickers**
-:::
 
-::: {.cell .code colab="{\"base_uri\":\"https://localhost:8080/\"}" id="YrWQ9T7XPiPV" outputId="976432eb-2678-4130-dffb-bd5037707b2f"}
 ``` python
 # Define the stocks to be fetched
 symbols = ['AAPL', 'MSFT', 'GOOGL', 'META', 'JFU']
@@ -46,12 +43,6 @@ symbols = ['AAPL', 'MSFT', 'GOOGL', 'META', 'JFU']
 data = yf.download(symbols,'2020-01-01','2023-09-01')
 ```
 
-::: {.output .stream .stdout}
-    [*********************100%%**********************]  5 of 5 completed
-:::
-:::
-
-::: {.cell .code colab="{\"base_uri\":\"https://localhost:8080/\"}" id="43Yp12aUQYyz" outputId="a2092b33-46a4-4d16-baa5-e30e39e48791"}
 ``` python
 print(data.head())
 ```
@@ -94,14 +85,9 @@ print(data.head())
     2020-01-08  35314000   520  13475000  27746500  
 
     [5 rows x 30 columns]
-:::
-:::
 
-::: {.cell .markdown id="zQTk1_1P09d-"}
 **Moving averages and Relative Strength Index**
-:::
 
-::: {.cell .code id="t0uxWWgaPkln"}
 ``` python
 # Calculate moving averages and RSI for each stock symbol
 for symbol in symbols:
@@ -121,9 +107,7 @@ for symbol in symbols:
     # Calculate 200-day moving average
     data[symbol+'_MA200'] = data['Close'][symbol].rolling(window=200).mean()
 ```
-:::
 
-::: {.cell .code id="QlfaF2F6PnB5"}
 ``` python
 # Predict for the next 'n' days using linear regression, decision tree regressor, and random forest regressor
 forecast_out = 30
@@ -132,13 +116,9 @@ forecast_out = 30
 for symbol in symbols:
     data[symbol+'_Prediction'] = data['Close'][symbol].shift(-forecast_out)
 ```
-:::
 
-::: {.cell .markdown id="0s6oTfXS1TZ_"}
 **Training Models**
-:::
 
-::: {.cell .code colab="{\"base_uri\":\"https://localhost:8080/\"}" id="YJ_ssyskPqQx" outputId="4b9a6d1c-afef-43f8-b3ac-5ef35d718bde"}
 ``` python
 # Create the independent and dependent data sets for each stock symbol and train models
 for symbol in symbols:
@@ -188,67 +168,28 @@ for symbol in symbols:
 #.iloc is not working
 ```
 
-::: {.output .stream .stderr}
-    <ipython-input-59-b5213fe9e4fe>:3: FutureWarning: In a future version of pandas all arguments of DataFrame.drop except for the argument 'labels' will be keyword-only.
-      X = np.array(data.drop([symbol+'_Prediction'], 1))[:-forecast_out]
-:::
-
-::: {.output .stream .stdout}
     AAPL Linear Regression Confidence:  0.8693749526815797
     AAPL Decision Tree Confidence:  0.9081605516537108
     AAPL Random Forest Confidence:  0.9468460793945255
-:::
 
-::: {.output .stream .stderr}
-    <ipython-input-59-b5213fe9e4fe>:3: FutureWarning: In a future version of pandas all arguments of DataFrame.drop except for the argument 'labels' will be keyword-only.
-      X = np.array(data.drop([symbol+'_Prediction'], 1))[:-forecast_out]
-:::
-
-::: {.output .stream .stdout}
     MSFT Linear Regression Confidence:  0.8035098620081532
     MSFT Decision Tree Confidence:  0.8417873573839362
     MSFT Random Forest Confidence:  0.9058770578190273
-:::
 
-::: {.output .stream .stderr}
-    <ipython-input-59-b5213fe9e4fe>:3: FutureWarning: In a future version of pandas all arguments of DataFrame.drop except for the argument 'labels' will be keyword-only.
-      X = np.array(data.drop([symbol+'_Prediction'], 1))[:-forecast_out]
-:::
-
-::: {.output .stream .stdout}
     GOOGL Linear Regression Confidence:  0.8837169010119778
     GOOGL Decision Tree Confidence:  0.9285290838698419
     GOOGL Random Forest Confidence:  0.9503598628042024
-:::
 
-::: {.output .stream .stderr}
-    <ipython-input-59-b5213fe9e4fe>:3: FutureWarning: In a future version of pandas all arguments of DataFrame.drop except for the argument 'labels' will be keyword-only.
-      X = np.array(data.drop([symbol+'_Prediction'], 1))[:-forecast_out]
-:::
-
-::: {.output .stream .stdout}
     META Linear Regression Confidence:  0.7496966470619988
     META Decision Tree Confidence:  0.8259379697861178
     META Random Forest Confidence:  0.888153590092148
-:::
 
-::: {.output .stream .stderr}
-    <ipython-input-59-b5213fe9e4fe>:3: FutureWarning: In a future version of pandas all arguments of DataFrame.drop except for the argument 'labels' will be keyword-only.
-      X = np.array(data.drop([symbol+'_Prediction'], 1))[:-forecast_out]
-:::
-
-::: {.output .stream .stdout}
     JFU Linear Regression Confidence:  0.6217064867191909
     JFU Decision Tree Confidence:  0.9017686032831084
     JFU Random Forest Confidence:  0.8934490293521452
-:::
-:::
 
-::: {.cell .markdown id="XojZbRYL1df4"}
 **Correlation**
-:::
 
-::: {.cell .code colab="{\"base_uri\":\"https://localhost:8080/\"}" id="vQBnZ4upP2Z6" outputId="843cbdc1-e48e-4fa4-beea-e234424666a2"}
 ``` python
 # Correlation Analysis
 correlation_matrix = data.corr()
@@ -256,7 +197,6 @@ print("Correlation Matrix:")
 print(correlation_matrix)
 ```
 
-::: {.output .stream .stdout}
     Correlation Matrix:
                            Adj Close                                          \
                                 AAPL     GOOGL       JFU      META      MSFT   
@@ -524,14 +464,9 @@ print(correlation_matrix)
     JFU_Prediction               -0.040691       1.000000  
 
     [50 rows x 50 columns]
-:::
-:::
 
-::: {.cell .markdown id="IaFl9Gy41hGR"}
 **Plot correlation matrix with specified threshold**
-:::
 
-::: {.cell .code colab="{\"base_uri\":\"https://localhost:8080/\",\"height\":600}" id="Sgr9fyU1TXBf" outputId="507fdb97-f3ae-451f-e9b2-1142c8a497b6"}
 ``` python
 # Filter correlations for 'AAPL' above a threshold
 threshold = 0.6
@@ -545,16 +480,8 @@ plt.ylabel('Correlation')
 plt.show()
 ```
 
-::: {.output .display_data}
-![](vertopal_cb190fcd92424760bbbf15f476a68436/0216b8387783cf9e58f9b187d6d3fb2990ca2626.png)
-:::
-:::
-
-::: {.cell .markdown id="KJuWNwee1w59"}
 **Benchmarking performance agaisnt S&P500**
-:::
 
-::: {.cell .code colab="{\"base_uri\":\"https://localhost:8080/\"}" id="DcDwwkKEP5f5" outputId="3f7726f9-dc2d-43f1-9bf0-1adad7ad2fee"}
 ``` python
 # Performance Measurement against S&P 500 Index
 benchmark_data = yf.download('SPY','2020-01-01','2023-09-01')['Close']
@@ -563,17 +490,14 @@ for symbol in symbols:
    print(symbol + " Correlation with S&P 500: ", correlation_with_benchmark)
 ```
 
-::: {.output .stream .stdout}
-    [*********************100%%**********************]  1 of 1 completed
+    
+[*********************100%%**********************]  1 of 1 completed
     AAPL Correlation with S&P 500:  0.8900998247068898
     MSFT Correlation with S&P 500:  0.9329114322662561
     GOOGL Correlation with S&P 500:  0.95062462020499
     META Correlation with S&P 500:  0.44587757367253394
     JFU Correlation with S&P 500:  -0.6723668544261696
-:::
-:::
 
-::: {.cell .code colab="{\"base_uri\":\"https://localhost:8080/\",\"height\":487}" id="48zJjvjKTgEO" outputId="c22acd1b-d698-4e26-d0ae-68d7197b35a8"}
 ``` python
 # Performance measurement
 benchmark_corr = [data['Close'][symbol].corr(benchmark_data) for symbol in symbols]
@@ -585,16 +509,9 @@ plt.ylabel('Correlation')
 plt.show()
 ```
 
-::: {.output .display_data}
-![](vertopal_cb190fcd92424760bbbf15f476a68436/24ea99dd7e83e753054f032c51f4d5dcade04cc9.png)
-:::
-:::
 
-::: {.cell .markdown id="eKZvDlqI143g"}
 **Risk Analysis**
-:::
 
-::: {.cell .code colab="{\"base_uri\":\"https://localhost:8080/\"}" id="HGGI3OgEP6IS" outputId="e1eded9b-f6c7-43c8-c22e-c7f244b3079f"}
 ``` python
 # Risk Analysis
 for symbol in symbols:
@@ -603,16 +520,13 @@ for symbol in symbols:
    print(symbol + " Risk Measure (Standard Deviation of Daily Returns): ", risk_measure_std_deviation)
 ```
 
-::: {.output .stream .stdout}
+
     AAPL Risk Measure (Standard Deviation of Daily Returns):  0.021819554790903452
     MSFT Risk Measure (Standard Deviation of Daily Returns):  0.021118552747592577
     GOOGL Risk Measure (Standard Deviation of Daily Returns):  0.021448103080327605
     META Risk Measure (Standard Deviation of Daily Returns):  0.030356263394661093
     JFU Risk Measure (Standard Deviation of Daily Returns):  0.07520947731438413
-:::
-:::
 
-::: {.cell .code colab="{\"base_uri\":\"https://localhost:8080/\",\"height\":487}" id="ks7tPAnWTp4T" outputId="1e890221-8c8c-40c9-e3c0-920299403ef5"}
 ``` python
 # Risk measurement
 risk_measure_std_deviation = [data['Close'][symbol].pct_change().dropna().std() for symbol in symbols]

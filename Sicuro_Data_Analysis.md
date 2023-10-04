@@ -21,18 +21,15 @@ jupyter:
 
 ::: {.cell .markdown}
 ```{=html}
-<h1>FYP DATA ANALYSIS Section</h1>
+FYP DATA ANALYSIS Section
 ```
 :::
 
 ::: {.cell .markdown}
 ```{=html}
-<h3>
 ```
-Initialize firebase`<h3>`{=html}
-:::
+Initialize firebase{=html}
 
-::: {.cell .code execution_count="1"}
 ``` python
 import firebase_admin
 from firebase_admin import credentials

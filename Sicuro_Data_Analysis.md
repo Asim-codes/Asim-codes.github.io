@@ -19,12 +19,20 @@ jupyter:
   orig_nbformat: 4
 ---
 
+::: {.cell .markdown}
+```{=html}
+<h1>FYP DATA ANALYSIS Section</h1>
+```
+:::
 
-FYP DATA ANALYSIS Section
+::: {.cell .markdown}
+```{=html}
+<h3>
+```
+Initialize firebase`<h3>`{=html}
+:::
 
-
-Initialize firebase
-
+::: {.cell .code execution_count="1"}
 ``` python
 import firebase_admin
 from firebase_admin import credentials
@@ -33,13 +41,25 @@ cred = credentials.Certificate("serviceAccountKey.json")
 firebase_admin.initialize_app(cred)
 ```
 
+::: {.output .execute_result execution_count="1"}
+    <firebase_admin.App at 0x1cd52df47c0>
+:::
+:::
+
+::: {.cell .code execution_count="2"}
 ``` python
 from firebase_admin import firestore
 db = firestore.client()
 ```
+:::
 
-Getting data from a particular document
+::: {.cell .markdown}
+```{=html}
+<h3>Getting data from a particular document</h3>
+```
+:::
 
+::: {.cell .code execution_count="3"}
 ``` python
 import pandas as pd
 import numpy as np
@@ -51,10 +71,15 @@ data = db.collection("Users").document().get()
 if data.exists:
     print(data.to_dict())
 ```
+:::
 
-Creating a test data, and pushing into firebase firestore 
+::: {.cell .markdown}
+```{=html}
+<h3>Creating a test data, and pushing into firebase firestore </h3>
+```
+:::
 
-
+::: {.cell .code execution_count="4"}
 ``` python
 #add documents
 import datetime
@@ -133,6 +158,12 @@ for i in range(50):
 print('Data added')
 ```
 
+::: {.output .stream .stdout}
+    Data added
+:::
+:::
+
+::: {.cell .code execution_count="5"}
 ``` python
 #add documents
 import datetime
@@ -214,6 +245,12 @@ for i in range(50):
 print('Data added')
 ```
 
+::: {.output .stream .stdout}
+    Data added
+:::
+:::
+
+::: {.cell .code execution_count="6"}
 ``` python
 #add documents
 import datetime
@@ -295,10 +332,18 @@ for i in range(50):
 print('Data added')
 ```
 
+::: {.output .stream .stdout}
     Data added
-    
-Getting data from all the documents in a collection
+:::
+:::
 
+::: {.cell .markdown}
+```{=html}
+<h3>Getting data from all the documents in a collection</h3>
+```
+:::
+
+::: {.cell .code execution_count="7"}
 ``` python
 docs = db.collection("Users").get()
 
@@ -310,6 +355,7 @@ df = pd.DataFrame(data)
 print(df.head(5))
 ```
 
+::: {.output .stream .stdout}
        age                                             stress nationality  \
     0   20  [1 12/04/2023 at 05:38 PM, 1 13/04/2023 at 05:...     Chinese   
     1   20  [9 12/04/2023 at 05:38 PM, 8 13/04/2023 at 05:...     Chinese   
@@ -344,12 +390,21 @@ print(df.head(5))
     2      54  
     3      60  
     4      51  
-    
-Checking datatypes
+:::
+:::
 
+::: {.cell .markdown}
+```{=html}
+<h3>Checking datatypes</h3>
+```
+:::
+
+::: {.cell .code execution_count="8"}
 ``` python
 print(df.dtypes)
 ```
+
+::: {.output .stream .stdout}
     age                 int64
     stress             object
     nationality        object
@@ -371,13 +426,20 @@ print(df.dtypes)
     BMI               float64
     weight              int64
     dtype: object
+:::
+:::
 
+::: {.cell .markdown}
 ```{=html}
 <h3>Pre-processing</h3>
 ```
+:::
 
+::: {.cell .markdown}
 Extracting the mood numbers and storing it in an array
+:::
 
+::: {.cell .code execution_count="9"}
 ``` python
 # define a lambda function to extract the first number from each string in a list object
 extract_first_numbers = lambda x: [int(str(x).split()[0]) if isinstance(x, str) else x for x in x]
@@ -392,15 +454,21 @@ df['mood'] = updated_mood
 print(df['mood'].head())
 ```
 
+::: {.output .stream .stdout}
     0    [4, 5, 4, 4, 5, 4, 5, 5, 4, 4, 5, 5, 5, 4, 4, ...
     1    [2, 1, 0, 0, 0, 2, 2, 1, 2, 2, 2, 0, 1, 1, 2, ...
     2    [5, 4, 4, 5, 5, 5, 5, 4, 4, 5, 5, 5, 5, 5, 5, ...
     3    [2, 3, 3, 2, 2, 2, 3, 3, 3, 3, 3, 2, 2, 3, 3, ...
     4    [1, 2, 1, 0, 1, 2, 2, 2, 1, 0, 0, 1, 0, 2, 2, ...
     Name: mood, dtype: object
+:::
+:::
 
+::: {.cell .markdown}
 Extracting the stress numbers and storing it in an array
+:::
 
+::: {.cell .code execution_count="10"}
 ``` python
 # define a lambda function to extract the first number from each string in a list object
 extract_first_numbers = lambda x: [int(str(x).split()[0]) if isinstance(x, str) else x for x in x]
@@ -415,27 +483,42 @@ df['stress'] = updated_stress
 print(df['stress'].head())
 ```
 
+::: {.output .stream .stdout}
     0    [1, 1, 3, 3, 1, 1, 1, 1, 2, 3, 3, 2, 2, 3, 1, ...
     1    [9, 8, 10, 8, 9, 10, 8, 9, 10, 8, 9, 10, 8, 10...
     2    [3, 2, 2, 2, 1, 3, 3, 1, 3, 2, 3, 2, 1, 1, 1, ...
     3    [6, 4, 5, 4, 6, 7, 6, 4, 6, 7, 6, 7, 7, 6, 6, ...
     4    [10, 8, 9, 8, 9, 8, 9, 8, 10, 9, 9, 9, 8, 9, 8...
     Name: stress, dtype: object
+:::
+:::
 
+::: {.cell .markdown}
 Checking the number of data in the database
+:::
 
+::: {.cell .code execution_count="11"}
 ``` python
 print(df.shape)
 ```
 
-Putting all numeric data in one data frame
+::: {.output .stream .stdout}
+    (450, 20)
+:::
+:::
 
+::: {.cell .markdown}
+Putting all numeric data in one data frame
+:::
+
+::: {.cell .code execution_count="12"}
 ``` python
 # remove non-numeric columns
 df_numeric = df.drop(['educationLevel', 'industry', 'fullName', 'role', 'ethnicity','nationality' , 'maritialStatus' , 'mentalIllness', 'livingArea', 'gender'], axis=1)
 print(df_numeric.head())
 ```
 
+::: {.output .stream .stdout}
        age                                             stress  Symptoms  \
     0   20  [1, 1, 3, 3, 1, 1, 1, 1, 2, 3, 3, 2, 2, 3, 1, ...         4   
     1   20  [9, 8, 10, 8, 9, 10, 8, 9, 10, 8, 9, 10, 8, 10...         7   
@@ -456,9 +539,14 @@ print(df_numeric.head())
     2              1  18.685121      54  
     3              5  21.258503      60  
     4              4  18.732782      51  
+:::
+:::
 
+::: {.cell .markdown}
 Putting non-numeric data in one data frame
+:::
 
+::: {.cell .code execution_count="13"}
 ``` python
 df_non_numeric =df.drop(['fullName','age', 'stress', 'Symptoms', 'mood', 'Steps', 'Sleep', 'height', 'weight', 'familyMembers', 'BMI'], axis = 1)
 print(df_non_numeric[['educationLevel', 'maritialStatus']])
@@ -479,9 +567,16 @@ print(df_non_numeric[['educationLevel', 'maritialStatus']])
     449      Doctorate      Separated
 
     [450 rows x 2 columns]
+:::
+:::
 
-Label encoding
+::: {.cell .markdown}
+```{=html}
+<h3>Label encoding</h3>
+```
+:::
 
+::: {.cell .code execution_count="14"}
 ``` python
 from sklearn.preprocessing import LabelEncoder
 
@@ -493,6 +588,7 @@ df_numeric['educationLevel_encoded'] = le.fit_transform(df['educationLevel'])
 print(df_numeric[['educationLevel_encoded']])
 ```
 
+::: {.output .stream .stdout}
          educationLevel_encoded
     0                         3
     1                         1
@@ -507,11 +603,16 @@ print(df_numeric[['educationLevel_encoded']])
     449                       1
 
     [450 rows x 1 columns]
+:::
+:::
 
+::: {.cell .markdown}
 ```{=html}
 <h3>One-hot encoding</h3>
 ```
+:::
 
+::: {.cell .code execution_count="15"}
 ``` python
 import pandas as pd
 
@@ -869,10 +970,22 @@ L = sch.linkage(d, method='complete')
 sns.clustermap(corr_matrix, method='complete', metric='correlation', figsize=(10,10), cmap='coolwarm')
 ```
 
+::: {.output .execute_result execution_count="23"}
+    <seaborn.matrix.ClusterGrid at 0x1cd79490be0>
+:::
 
+::: {.output .display_data}
 ![](vertopal_8bce576911084d4680cebb3a1ba65c59/e4537139fe70018d52ce91731b6add464ebc3437.png)
+:::
+:::
 
-Pairwise correlation between two variables (numeric and non-numeric)
+::: {.cell .markdown}
+```{=html}
+<h3>Pairwise correlation between two variables (numeric and non-numeric)</h3>
+```
+:::
+
+::: {.cell .code execution_count="24"}
 ``` python
 
 import pandas as pd
@@ -895,10 +1008,13 @@ print(codes)
 print('The correlation between Education Level and mood is : ', categorize_correlation(corr2), "(", corr2 , ")")
 ```
 
-
+::: {.output .stream .stdout}
     ['Secondary' 'Doctorate' 'Bachelors' 'Masters']
     The correlation between Education Level and mood is :  Moderately positive ( 0.5137839477571693 )
+:::
+:::
 
+::: {.cell .code execution_count="25"}
 ``` python
 import pandas as pd
 
@@ -917,10 +1033,14 @@ print(codes3)
 print('The correlation between Ethnicity and mood is : ', categorize_correlation(corr3), "(", corr3 , ")")
 ```
 
+::: {.output .stream .stdout}
     ['Japanese', 'Indian', 'Chinese', 'Danish']
     Categories (4, object): ['Chinese', 'Danish', 'Indian', 'Japanese']
     The correlation between Ethnicity and mood is :  Weakly positive ( 0.372509752920904 )
+:::
+:::
 
+::: {.cell .code execution_count="26"}
 ``` python
 import pandas as pd
 
@@ -939,11 +1059,14 @@ print(codes4)
 print('The correlation between Working industry and stress is : ', categorize_correlation(corr4),"(", corr4 , ")")
 ```
 
-
+::: {.output .stream .stdout}
     ['Technology', 'Finance', 'F&B', 'Aerospace', 'Healthcare', 'Student']
     Categories (6, object): ['Aerospace', 'F&B', 'Finance', 'Healthcare', 'Student', 'Technology']
     The correlation between Working industry and stress is :  No correlation ( -0.07978985123910241 )
+:::
+:::
 
+::: {.cell .code execution_count="27"}
 ``` python
 import pandas as pd
 
@@ -962,10 +1085,14 @@ print(codes5)
 print('The correlation between maritial status and stress is : ', categorize_correlation(corr5), "(", corr5 , ")")
 ```
 
+::: {.output .stream .stdout}
     ['Separated', 'Single', 'Divorced']
     Categories (3, object): ['Divorced', 'Separated', 'Single']
     The correlation between maritial status and stress is :  No correlation ( 0.05494827379728323 )
+:::
+:::
 
+::: {.cell .code execution_count="28"}
 ``` python
 
 # extract the features and targets
@@ -980,7 +1107,7 @@ print(df_numeric['stress_avg'].head(1))
 print(df_numeric['mood_avg'].head(1))
 ```
 
-
+::: {.output .stream .stdout}
                                                   stress  \
     0  [1, 1, 3, 3, 1, 1, 1, 1, 2, 3, 3, 2, 2, 3, 1, ...   
 
@@ -990,11 +1117,22 @@ print(df_numeric['mood_avg'].head(1))
     Name: stress_avg, dtype: float64
     0    4.571429
     Name: mood_avg, dtype: float64
-    
-Testing and evaluating Linear Regression and Random Forest Regression
-Features: Personal particulars of users
-Target variable (prediction): Average mood level and average stress level
+:::
+:::
 
+::: {.cell .markdown}
+```{=html}
+<h3>Testing and evaluating Linear Regression and Random Forest Regression</h3>
+```
+```{=html}
+<p>Features: Personal particulars of users</p>
+```
+```{=html}
+<p>Target variable (prediction): Average mood level and average stress level</p>
+```
+:::
+
+::: {.cell .code execution_count="29"}
 ``` python
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
@@ -1053,7 +1191,7 @@ print("Mean Squared Error (MSE):", mse_RF)
 print("R² score:", r2_RF)
 ```
 
-
+::: {.output .stream .stdout}
     LINEAR REGRESSION
     RMSE_LR: 1.2787902846996444
     Mean Absolute Error (MAE): 1.062966702293544
@@ -1064,7 +1202,10 @@ print("R² score:", r2_RF)
     Mean Absolute Error (MAE): 0.8326944444444441
     Mean Squared Error (MSE): 0.9718556481481484
     R² score: 0.8958247847078721
+:::
+:::
 
+::: {.cell .code execution_count="30"}
 ``` python
 
 # extract the features and targets
@@ -1111,7 +1252,7 @@ print("Mean Squared Error (MSE):", mse_RF)
 print("R² score:", r2_RF)
 ```
 
-
+::: {.output .stream .stdout}
     LINEAR REGRESSION
     RMSE_LR: 0.6730550163766352
     Mean Absolute Error (MAE): 0.5476575960312353
@@ -1122,9 +1263,16 @@ print("R² score:", r2_RF)
     Mean Absolute Error (MAE): 0.09757870370370339
     Mean Squared Error (MSE): 0.015540234788359714
     R² score: 0.9966030656257614
-    
-After converting non-numeric values to numeric values
+:::
+:::
 
+::: {.cell .markdown}
+```{=html}
+<h3>After converting non-numeric values to numeric values</h3>
+```
+:::
+
+::: {.cell .code execution_count="31"}
 ``` python
 # extract the features and targets
 x = df_encoded[[
@@ -1197,6 +1345,7 @@ print("Mean Squared Error (MSE):", mse_RF)
 print("R² score:", r2_RF)
 ```
 
+::: {.output .stream .stdout}
     LINEAR REGRESSION
     RMSE_LR: 0.12590361863227206
     Mean Absolute Error (MAE): 0.09984682525271399
@@ -1207,4 +1356,5 @@ print("R² score:", r2_RF)
     Mean Absolute Error (MAE): 0.10219973544973526
     Mean Squared Error (MSE): 0.0168024370118417
     R² score: 0.996381272053682
-
+:::
+:::

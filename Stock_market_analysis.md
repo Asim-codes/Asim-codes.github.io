@@ -478,6 +478,7 @@ plt.title('Correlation of AAPL with Other Stocks (Above 0.6)')
 plt.ylabel('Correlation')
 plt.show()
 ```
+![](images/stock_plots/stock_plt_corr.png)
 
 **Benchmarking performance agaisnt S&P500**
 

@@ -195,7 +195,7 @@ correlation_matrix = data.corr()
 print("Correlation Matrix:")
 print(correlation_matrix)
 ```
-:
+
     Correlation Matrix:
                            Adj Close                                          \
                                 AAPL     GOOGL       JFU      META      MSFT   
@@ -249,7 +249,7 @@ print(correlation_matrix)
     GOOGL_Prediction        0.746650  0.921140 -0.573907  0.564483  0.866042   
     META_Prediction         0.030167  0.314538 -0.060635  0.871229  0.253607   
     JFU_Prediction         -0.754602 -0.484465  0.937591 -0.007773 -0.637924   
-:
+
                                Close                                          ...  \
                                 AAPL     GOOGL       JFU      META      MSFT  ...   
     Adj Close        AAPL   0.999870  0.808847 -0.812810  0.181220  0.927045  ...   
@@ -303,9 +303,9 @@ print(correlation_matrix)
     META_Prediction         0.037728  0.314538 -0.060635  0.871229  0.272042  ...   
     JFU_Prediction         -0.753689 -0.484465  0.937591 -0.007773 -0.628735  ...   
 
- :                          META_MA50 META_MA200   JFU_RSI  JFU_MA50 JFU_MA200  \
+                           META_MA50 META_MA200   JFU_RSI  JFU_MA50 JFU_MA200  \
                                                                                 
- :   Adj Close        AAPL   0.161920  -0.082795  0.040179 -0.815882 -0.626970   
+    Adj Close        AAPL   0.161920  -0.082795  0.040179 -0.815882 -0.626970   
                      GOOGL  0.575963   0.661437  0.068153 -0.542873 -0.229370   
                      JFU    0.019252   0.711459  0.043307  0.957676  0.613811   
                      META   0.928316   0.530259  0.094762 -0.010755  0.338345   
@@ -356,9 +356,9 @@ print(correlation_matrix)
     META_Prediction         0.768514   0.307906  0.121921  0.112358  0.293471   
     JFU_Prediction          0.157141   0.619181 -0.001170  0.870422  0.631696   
 
- :                          AAPL_Prediction MSFT_Prediction GOOGL_Prediction  \
+                           AAPL_Prediction MSFT_Prediction GOOGL_Prediction  \
                                                                               
- :   Adj Close        AAPL         0.905793        0.813605         0.746650   
+    Adj Close        AAPL         0.905793        0.813605         0.746650   
                      GOOGL        0.758888        0.826936         0.921140   
                      JFU         -0.825721       -0.656857        -0.573907   
                      META         0.177138        0.392515         0.564483   
@@ -409,9 +409,9 @@ print(correlation_matrix)
     META_Prediction               0.177418        0.411891         0.502900   
     JFU_Prediction               -0.798886       -0.634606        -0.519674   
 
-  :                         META_Prediction JFU_Prediction  
+                           META_Prediction JFU_Prediction  
                                                            
-  :  Adj Close        AAPL         0.030167      -0.754602  
+    Adj Close        AAPL         0.030167      -0.754602  
                      GOOGL        0.314538      -0.484465  
                      JFU         -0.060635       0.937591  
                      META         0.871229      -0.007773  

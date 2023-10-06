@@ -46,7 +46,7 @@ data = yf.download(symbols,'2020-01-01','2023-09-01')
 ``` python
 print(data.head())
 ```
-
+:::
                 Adj Close                                                Close  \
                      AAPL      GOOGL    JFU        META        MSFT       AAPL   
     Date                                                                         
@@ -56,7 +56,7 @@ print(data.head())
     2020-01-07  72.771034  69.755501  190.0  213.059998  152.158279  74.597504   
     2020-01-08  73.941658  70.251999  187.0  215.220001  154.581924  75.797501   
 
-                                                          ...       Open  \
+   :                                                       ...       Open  \
                     GOOGL    JFU        META        MSFT  ...       AAPL   
     Date                                                  ...              
     2020-01-02  68.433998  190.0  209.779999  160.619995  ...  74.059998   
@@ -65,7 +65,7 @@ print(data.head())
     2020-01-07  69.755501  190.0  213.059998  157.580002  ...  74.959999   
     2020-01-08  70.251999  187.0  215.220001  160.089996  ...  74.290001   
 
-                                                                  Volume  \
+   :                                                               Volume  \
                     GOOGL         JFU        META        MSFT       AAPL   
     Date                                                                   
     2020-01-02  67.420502  187.000000  206.750000  158.779999  135480400   
@@ -74,17 +74,17 @@ print(data.head())
     2020-01-07  70.023003  196.199997  212.820007  159.320007  108872000   
     2020-01-08  69.740997  186.059998  213.000000  158.929993  132079200   
 
-                                                    
-                   GOOGL   JFU      META      MSFT  
+   :                                                  
+                 GOOGL   JFU      META      MSFT  
     Date                                            
     2020-01-02  27278000  2780  12077100  22622100  
     2020-01-03  23408000    30  11188400  21116200  
     2020-01-06  46768000   225  17058900  20813700  
     2020-01-07  34330000  4465  14912400  21634100  
     2020-01-08  35314000   520  13475000  27746500  
-
+   :
     [5 rows x 30 columns]
-
+    
 **Moving averages and Relative Strength Index**
 
 ``` python
@@ -166,23 +166,23 @@ for symbol in symbols:
 
 #.iloc is not working
 ```
-
+:
     AAPL Linear Regression Confidence:  0.8693749526815797
     AAPL Decision Tree Confidence:  0.9081605516537108
     AAPL Random Forest Confidence:  0.9468460793945255
-
+:
     MSFT Linear Regression Confidence:  0.8035098620081532
     MSFT Decision Tree Confidence:  0.8417873573839362
     MSFT Random Forest Confidence:  0.9058770578190273
-
+:
     GOOGL Linear Regression Confidence:  0.8837169010119778
     GOOGL Decision Tree Confidence:  0.9285290838698419
     GOOGL Random Forest Confidence:  0.9503598628042024
-
+:
     META Linear Regression Confidence:  0.7496966470619988
     META Decision Tree Confidence:  0.8259379697861178
     META Random Forest Confidence:  0.888153590092148
-
+:
     JFU Linear Regression Confidence:  0.6217064867191909
     JFU Decision Tree Confidence:  0.9017686032831084
     JFU Random Forest Confidence:  0.8934490293521452
@@ -195,7 +195,7 @@ correlation_matrix = data.corr()
 print("Correlation Matrix:")
 print(correlation_matrix)
 ```
-
+:
     Correlation Matrix:
                            Adj Close                                          \
                                 AAPL     GOOGL       JFU      META      MSFT   
@@ -249,7 +249,7 @@ print(correlation_matrix)
     GOOGL_Prediction        0.746650  0.921140 -0.573907  0.564483  0.866042   
     META_Prediction         0.030167  0.314538 -0.060635  0.871229  0.253607   
     JFU_Prediction         -0.754602 -0.484465  0.937591 -0.007773 -0.637924   
-
+:
                                Close                                          ...  \
                                 AAPL     GOOGL       JFU      META      MSFT  ...   
     Adj Close        AAPL   0.999870  0.808847 -0.812810  0.181220  0.927045  ...   
@@ -303,9 +303,9 @@ print(correlation_matrix)
     META_Prediction         0.037728  0.314538 -0.060635  0.871229  0.272042  ...   
     JFU_Prediction         -0.753689 -0.484465  0.937591 -0.007773 -0.628735  ...   
 
-                           META_MA50 META_MA200   JFU_RSI  JFU_MA50 JFU_MA200  \
+ :                          META_MA50 META_MA200   JFU_RSI  JFU_MA50 JFU_MA200  \
                                                                                 
-    Adj Close        AAPL   0.161920  -0.082795  0.040179 -0.815882 -0.626970   
+ :   Adj Close        AAPL   0.161920  -0.082795  0.040179 -0.815882 -0.626970   
                      GOOGL  0.575963   0.661437  0.068153 -0.542873 -0.229370   
                      JFU    0.019252   0.711459  0.043307  0.957676  0.613811   
                      META   0.928316   0.530259  0.094762 -0.010755  0.338345   
@@ -356,9 +356,9 @@ print(correlation_matrix)
     META_Prediction         0.768514   0.307906  0.121921  0.112358  0.293471   
     JFU_Prediction          0.157141   0.619181 -0.001170  0.870422  0.631696   
 
-                           AAPL_Prediction MSFT_Prediction GOOGL_Prediction  \
+ :                          AAPL_Prediction MSFT_Prediction GOOGL_Prediction  \
                                                                               
-    Adj Close        AAPL         0.905793        0.813605         0.746650   
+ :   Adj Close        AAPL         0.905793        0.813605         0.746650   
                      GOOGL        0.758888        0.826936         0.921140   
                      JFU         -0.825721       -0.656857        -0.573907   
                      META         0.177138        0.392515         0.564483   
@@ -409,9 +409,9 @@ print(correlation_matrix)
     META_Prediction               0.177418        0.411891         0.502900   
     JFU_Prediction               -0.798886       -0.634606        -0.519674   
 
-                           META_Prediction JFU_Prediction  
+  :                         META_Prediction JFU_Prediction  
                                                            
-    Adj Close        AAPL         0.030167      -0.754602  
+  :  Adj Close        AAPL         0.030167      -0.754602  
                      GOOGL        0.314538      -0.484465  
                      JFU         -0.060635       0.937591  
                      META         0.871229      -0.007773  
@@ -508,7 +508,7 @@ plt.xlabel('Stock Symbol')
 plt.ylabel('Correlation')
 plt.show()
 ```
-
+![Image](images/stock_plots/stock_plt_perf.png)
 
 **Risk Analysis**
 
@@ -521,11 +521,11 @@ for symbol in symbols:
 ```
 
 
-    AAPL Risk Measure (Standard Deviation of Daily Returns):  0.021819554790903452
-    MSFT Risk Measure (Standard Deviation of Daily Returns):  0.021118552747592577
-    GOOGL Risk Measure (Standard Deviation of Daily Returns):  0.021448103080327605
-    META Risk Measure (Standard Deviation of Daily Returns):  0.030356263394661093
-    JFU Risk Measure (Standard Deviation of Daily Returns):  0.07520947731438413
+  AAPL Risk Measure (Standard Deviation of Daily Returns):  0.021819554790903452
+  MSFT Risk Measure (Standard Deviation of Daily Returns):  0.021118552747592577
+  GOOGL Risk Measure (Standard Deviation of Daily Returns):  0.021448103080327605
+  META Risk Measure (Standard Deviation of Daily Returns):  0.030356263394661093
+  JFU Risk Measure (Standard Deviation of Daily Returns):  0.07520947731438413
 
 ``` python
 # Risk measurement
@@ -537,6 +537,8 @@ plt.xlabel('Stock Symbol')
 plt.ylabel('Standard Deviation')
 plt.show()
 ```
+![Image](images/stock_plots/stock_plt_risk.png)
+
 
 **Volatility measure (need to update metrics)**
 
@@ -557,11 +559,11 @@ for symbol in symbols:
     else:
         print(symbol + " is very volatile.")
 ```
-    AAPL is very volatile.
-    MSFT is very volatile.
-    GOOGL is very volatile.
-    META is very volatile.
-    JFU is very volatile.
+  AAPL is very volatile.
+  MSFT is very volatile.
+  GOOGL is very volatile.
+  META is very volatile.
+  JFU is very volatile.
 
 **Summary and data visualization**
 
@@ -571,7 +573,7 @@ for symbol in symbols:
     print(data[symbol].describe())
 ```
 
-::: {.output .stream .stdout}
+::: 
                Return
     count  922.000000
     mean     0.001233
@@ -626,7 +628,11 @@ for symbol in symbols:
     plt.title(symbol + ' Closing Prices')
     plt.show()
 ```
-
+![Image](images/stock_plots/stock_plt_aapl_close.png)
+![Image](images/stock_plots/stock_plt_msft_close.png)
+![Image](images/stock_plots/stock_plt_googl_close.png)
+![Image](images/stock_plots/stock_plt_meta_close.png)
+![Image](images/stock_plots/stock_plt_jfu_close.png)
 
 ``` python
 # Plot moving averages and RSI over time
@@ -643,6 +649,16 @@ for symbol in symbols:
     plt.title(symbol + ' RSI')
     plt.show()
 ```
+![Image](images/stock_plots/aapl_mv.png)
+![Image](images/stock_plots/aapl_rsi.png)
+![Image](images/stock_plots/msft_mv.png)
+![Image](images/stock_plots/msft_rsi.png)
+![Image](images/stock_plots/googl_mv.png)
+![Image](images/stock_plots/googl_rsi.png)
+![Image](images/stock_plots/meta_mv.png)
+![Image](images/stock_plots/meta_rsi.png)
+![Image](images/stock_plots/jfu_mv.png)
+![Image](images/stock_plots/jfu_rsi.png)
 
 
 ``` python
@@ -661,5 +677,8 @@ for symbol in symbols:
     plt.legend()
     plt.show()
 ```
-
-
+![Image](images/stock_plots/aapl_pred.png)
+![Image](images/stock_plots/msft_pred.png)
+![Image](images/stock_plots/googl_pred.png)
+![Image](images/stock_plots/meta_pred.png)
+![Image](images/stock_plots/jfu_pred.png)

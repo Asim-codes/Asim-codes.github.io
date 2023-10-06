@@ -19,11 +19,8 @@ jupyter:
   orig_nbformat: 4
 ---
 
-::: {.cell .markdown}
-```{=html}
-FYP DATA ANALYSIS Section
-```
-:::
+**FYP DATA ANALYSIS Section**
+
 
 ::: {.cell .markdown}
 ```{=html}
@@ -918,7 +915,7 @@ plt.show()
 ```
 
 ::: {.output .display_data}
-![](vertopal_8bce576911084d4680cebb3a1ba65c59/f0d5de22fb29eebbe7479fe06a93dd60bdde0201.png)
+![Image](images/sicuro_plots/heatmap.png)
 :::
 :::
 
@@ -951,7 +948,7 @@ sns.pairplot(df, diag_kind="hist", corner=True)
 :::
 
 ::: {.output .display_data}
-![](vertopal_8bce576911084d4680cebb3a1ba65c59/850e796159a1160641a445c3452f187ab51a2ca3.png)
+![Image](images/sicuro_plots/pairplot.png)
 :::
 :::
 
@@ -972,7 +969,7 @@ sns.clustermap(corr_matrix, method='complete', metric='correlation', figsize=(10
 :::
 
 ::: {.output .display_data}
-![](vertopal_8bce576911084d4680cebb3a1ba65c59/e4537139fe70018d52ce91731b6add464ebc3437.png)
+![Image](images/sicuro_plots/scipy_heatmap.png)
 :::
 :::
 

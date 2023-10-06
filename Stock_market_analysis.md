@@ -166,23 +166,23 @@ for symbol in symbols:
 
 #.iloc is not working
 ```
-:
+
     AAPL Linear Regression Confidence:  0.8693749526815797
     AAPL Decision Tree Confidence:  0.9081605516537108
     AAPL Random Forest Confidence:  0.9468460793945255
-:
+
     MSFT Linear Regression Confidence:  0.8035098620081532
     MSFT Decision Tree Confidence:  0.8417873573839362
     MSFT Random Forest Confidence:  0.9058770578190273
-:
+
     GOOGL Linear Regression Confidence:  0.8837169010119778
     GOOGL Decision Tree Confidence:  0.9285290838698419
     GOOGL Random Forest Confidence:  0.9503598628042024
-:
+
     META Linear Regression Confidence:  0.7496966470619988
     META Decision Tree Confidence:  0.8259379697861178
     META Random Forest Confidence:  0.888153590092148
-:
+
     JFU Linear Regression Confidence:  0.6217064867191909
     JFU Decision Tree Confidence:  0.9017686032831084
     JFU Random Forest Confidence:  0.8934490293521452

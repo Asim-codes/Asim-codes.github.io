@@ -5,24 +5,16 @@ jupyter:
     display_name: Python 3
     name: python3
   language_info:
-    codemirror_mode:
-      name: ipython
-      version: 3
-    file_extension: .py
-    mimetype: text/x-python
     name: python
-    nbconvert_exporter: python
-    pygments_lexer: ipython3
-    version: 3.12.0
   nbformat: 4
   nbformat_minor: 0
 ---
 
-::: {.cell .markdown id="9VRaNYoVavoP"}
 **Overview \[Key Energy End-use\]**
-:::
+
 
 ::: {.cell .code execution_count="41" colab="{\"base_uri\":\"https://localhost:8080/\"}" id="-N2YCKy8Uu2P" outputId="6a8b775b-012b-4fc2-e410-9f72d07142c1"}
+
 ``` python
 import requests
 import pandas as pd
@@ -53,7 +45,6 @@ else:
 df_overview
 ```
 
-::: {.output .execute_result execution_count="2"}
 ```{=html}
 <div>
 <style scoped>

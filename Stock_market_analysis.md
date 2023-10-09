@@ -9,8 +9,8 @@ jupyter:
   nbformat: 4
   nbformat_minor: 0
 ---
-
-
+This is a simple exploratory data analysis on 5 stocks (AAPL, MSFT, GOOGL, META & JFU)  - prediction, correlation, and risk assesmennt, using python libraries and machine learning algorithms.
+---
 **Import libraries**
 
 

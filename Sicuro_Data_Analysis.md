@@ -32,6 +32,8 @@ Third part of the project focused on the display of insights. This involved desi
 
 Fourth part of the project focused on machine learning. This involved developing and implementing machine learning algorithms to analyze the collected data. Machine learning was used to predict mood and stress levels based on the other data logged by users.
 
+The below consists of part 2-4. Part 1 can be found: https://github.com/Asim-codes/Sicuro_app_code
+
 **Initialize firebase**
 
 ``` python

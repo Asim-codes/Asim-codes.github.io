@@ -19,13 +19,10 @@ jupyter:
   orig_nbformat: 4
 ---
 
-**FYP DATA ANALYSIS Section**
+**Sicuro Data Analysis**
 
-
-::: {.cell .markdown}
-```{=html}
-```
-Initialize firebase{=html}
+---
+**Initialize firebase**
 
 ``` python
 import firebase_admin
@@ -35,25 +32,13 @@ cred = credentials.Certificate("serviceAccountKey.json")
 firebase_admin.initialize_app(cred)
 ```
 
-::: {.output .execute_result execution_count="1"}
-    <firebase_admin.App at 0x1cd52df47c0>
-:::
-:::
-
-::: {.cell .code execution_count="2"}
 ``` python
 from firebase_admin import firestore
 db = firestore.client()
 ```
-:::
 
-::: {.cell .markdown}
-```{=html}
-<h3>Getting data from a particular document</h3>
-```
-:::
+**Getting data from a particular document**
 
-::: {.cell .code execution_count="3"}
 ``` python
 import pandas as pd
 import numpy as np
@@ -65,15 +50,8 @@ data = db.collection("Users").document().get()
 if data.exists:
     print(data.to_dict())
 ```
-:::
+**Creating a test data, and pushing into firebase firestore**
 
-::: {.cell .markdown}
-```{=html}
-<h3>Creating a test data, and pushing into firebase firestore </h3>
-```
-:::
-
-::: {.cell .code execution_count="4"}
 ``` python
 #add documents
 import datetime
@@ -155,9 +133,7 @@ print('Data added')
 ::: {.output .stream .stdout}
     Data added
 :::
-:::
 
-::: {.cell .code execution_count="5"}
 ``` python
 #add documents
 import datetime
@@ -242,9 +218,7 @@ print('Data added')
 ::: {.output .stream .stdout}
     Data added
 :::
-:::
 
-::: {.cell .code execution_count="6"}
 ``` python
 #add documents
 import datetime
@@ -329,15 +303,9 @@ print('Data added')
 ::: {.output .stream .stdout}
     Data added
 :::
-:::
 
-::: {.cell .markdown}
-```{=html}
-<h3>Getting data from all the documents in a collection</h3>
-```
-:::
+**Getting data from all the documents in a collection**
 
-::: {.cell .code execution_count="7"}
 ``` python
 docs = db.collection("Users").get()
 
@@ -387,13 +355,8 @@ print(df.head(5))
 :::
 :::
 
-::: {.cell .markdown}
-```{=html}
-<h3>Checking datatypes</h3>
-```
-:::
+**Checking datatypes**
 
-::: {.cell .code execution_count="8"}
 ``` python
 print(df.dtypes)
 ```
@@ -423,17 +386,10 @@ print(df.dtypes)
 :::
 :::
 
-::: {.cell .markdown}
-```{=html}
-<h3>Pre-processing</h3>
-```
-:::
+**Pre-processing**
 
-::: {.cell .markdown}
-Extracting the mood numbers and storing it in an array
-:::
+**Extracting the mood numbers and storing it in an array**
 
-::: {.cell .code execution_count="9"}
 ``` python
 # define a lambda function to extract the first number from each string in a list object
 extract_first_numbers = lambda x: [int(str(x).split()[0]) if isinstance(x, str) else x for x in x]
@@ -456,13 +412,9 @@ print(df['mood'].head())
     4    [1, 2, 1, 0, 1, 2, 2, 2, 1, 0, 0, 1, 0, 2, 2, ...
     Name: mood, dtype: object
 :::
-:::
 
-::: {.cell .markdown}
-Extracting the stress numbers and storing it in an array
-:::
+**Extracting the stress numbers and storing it in an array**
 
-::: {.cell .code execution_count="10"}
 ``` python
 # define a lambda function to extract the first number from each string in a list object
 extract_first_numbers = lambda x: [int(str(x).split()[0]) if isinstance(x, str) else x for x in x]
@@ -487,11 +439,8 @@ print(df['stress'].head())
 :::
 :::
 
-::: {.cell .markdown}
-Checking the number of data in the database
-:::
+**Checking the number of data in the database**
 
-::: {.cell .code execution_count="11"}
 ``` python
 print(df.shape)
 ```
@@ -499,13 +448,9 @@ print(df.shape)
 ::: {.output .stream .stdout}
     (450, 20)
 :::
-:::
 
-::: {.cell .markdown}
-Putting all numeric data in one data frame
-:::
+**Putting all numeric data in one data frame**
 
-::: {.cell .code execution_count="12"}
 ``` python
 # remove non-numeric columns
 df_numeric = df.drop(['educationLevel', 'industry', 'fullName', 'role', 'ethnicity','nationality' , 'maritialStatus' , 'mentalIllness', 'livingArea', 'gender'], axis=1)
@@ -534,13 +479,9 @@ print(df_numeric.head())
     3              5  21.258503      60  
     4              4  18.732782      51  
 :::
-:::
 
-::: {.cell .markdown}
-Putting non-numeric data in one data frame
-:::
+**Putting non-numeric data in one data frame**
 
-::: {.cell .code execution_count="13"}
 ``` python
 df_non_numeric =df.drop(['fullName','age', 'stress', 'Symptoms', 'mood', 'Steps', 'Sleep', 'height', 'weight', 'familyMembers', 'BMI'], axis = 1)
 print(df_non_numeric[['educationLevel', 'maritialStatus']])
@@ -562,15 +503,9 @@ print(df_non_numeric[['educationLevel', 'maritialStatus']])
 
     [450 rows x 2 columns]
 :::
-:::
 
-::: {.cell .markdown}
-```{=html}
-<h3>Label encoding</h3>
-```
-:::
+**Label encoding**
 
-::: {.cell .code execution_count="14"}
 ``` python
 from sklearn.preprocessing import LabelEncoder
 
@@ -600,13 +535,8 @@ print(df_numeric[['educationLevel_encoded']])
 :::
 :::
 
-::: {.cell .markdown}
-```{=html}
-<h3>One-hot encoding</h3>
-```
-:::
+**One-hot encoding**
 
-::: {.cell .code execution_count="15"}
 ``` python
 import pandas as pd
 
@@ -668,16 +598,10 @@ print(df_encoded.head())
 
     [5 rows x 26 columns]
 :::
-:::
 
-::: {.cell .markdown}
-```{=html}
-<h3>Combining both encoding</h3>
-```
-:::
+**Combining both encoding**
 
-::: {.cell .code execution_count="16"}
-``` python
+```python
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder
 
@@ -743,15 +667,9 @@ print(df_encoded.head())
 
     [5 rows x 26 columns]
 :::
-:::
 
-::: {.cell .markdown}
-```{=html}
-<h3>Function to categorize correlations</h3>
-```
-:::
+**Function to categorize correlations**
 
-::: {.cell .code execution_count="17"}
 ``` python
 def categorize_correlation(correlation):
     if correlation >= 0.9:
@@ -773,15 +691,9 @@ def categorize_correlation(correlation):
     else:
         return "Very strongly negative"
 ```
-:::
 
-::: {.cell .markdown}
-```{=html}
-<h3>Computing correlation matrix</h3>
-```
-:::
+**Computing correlation matrix**
 
-::: {.cell .code execution_count="18"}
 ``` python
 # Convert columns to numeric data types
 df_numeric['height'] = pd.to_numeric(df_numeric['height'])
@@ -834,9 +746,7 @@ print(df_numeric.describe())
     75%      4.452381    8.922619  
     max      4.761905    9.380952  
 :::
-:::
 
-::: {.cell .code execution_count="19"}
 ``` python
 # Display correlation matrix 
 print(corr_matrix[['Steps', 'Sleep', 'mood_avg', 'stress_avg']])
@@ -856,9 +766,7 @@ print(corr_matrix[['Steps', 'Sleep', 'mood_avg', 'stress_avg']])
     mood_avg                0.759632  0.943471  1.000000   -0.993244
     stress_avg             -0.800765 -0.945814 -0.993244    1.000000
 :::
-:::
 
-::: {.cell .code execution_count="20"}
 ``` python
 # Display catrgorized correlation matrix 
 print(corr_categories[['Steps', 'Sleep', 'mood_avg', 'stress_avg']])
@@ -891,15 +799,9 @@ print(corr_categories[['Steps', 'Sleep', 'mood_avg', 'stress_avg']])
     mood_avg                Very strongly positive  Very strongly negative  
     stress_avg              Very strongly negative  Very strongly positive  
 :::
-:::
 
-::: {.cell .markdown}
-```{=html}
-<h3>Heatmap for visualization of correlation matrix</h3>
-```
-:::
+**Heatmap for visualization of correlation matrix**
 
-::: {.cell .code execution_count="21"}
 ``` python
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -917,15 +819,9 @@ plt.show()
 ::: {.output .display_data}
 ![Image](images/sicuro_plots/heatmap.png)
 :::
-:::
 
-::: {.cell .markdown}
-```{=html}
-<h3>Pairplot for visualization of correlation matrix</h3>
-```
-:::
+**Pairplot for visualization of correlation matrix**
 
-::: {.cell .code execution_count="22"}
 ``` python
 import pandas as pd
 import seaborn as sns
@@ -939,20 +835,10 @@ sns.set(style="white")
 sns.pairplot(df, diag_kind="hist", corner=True)
 ```
 
-::: {.output .execute_result execution_count="22"}
-    <seaborn.axisgrid.PairGrid at 0x1cd757334f0>
-:::
-
-::: {.output .display_data}
-    <Figure size 800x800 with 0 Axes>
-:::
-
 ::: {.output .display_data}
 ![Image](images/sicuro_plots/pairplot.png)
 :::
-:::
 
-::: {.cell .code execution_count="23"}
 ``` python
 import scipy.cluster.hierarchy as sch
 import seaborn as sns
@@ -964,22 +850,12 @@ L = sch.linkage(d, method='complete')
 sns.clustermap(corr_matrix, method='complete', metric='correlation', figsize=(10,10), cmap='coolwarm')
 ```
 
-::: {.output .execute_result execution_count="23"}
-    <seaborn.matrix.ClusterGrid at 0x1cd79490be0>
-:::
 
-::: {.output .display_data}
 ![Image](images/sicuro_plots/scipy_heatmap.png)
 :::
-:::
 
-::: {.cell .markdown}
-```{=html}
-<h3>Pairwise correlation between two variables (numeric and non-numeric)</h3>
-```
-:::
+**Pairwise correlation between two variables (numeric and non-numeric)**
 
-::: {.cell .code execution_count="24"}
 ``` python
 
 import pandas as pd
@@ -1006,9 +882,7 @@ print('The correlation between Education Level and mood is : ', categorize_corre
     ['Secondary' 'Doctorate' 'Bachelors' 'Masters']
     The correlation between Education Level and mood is :  Moderately positive ( 0.5137839477571693 )
 :::
-:::
 
-::: {.cell .code execution_count="25"}
 ``` python
 import pandas as pd
 
@@ -1032,9 +906,7 @@ print('The correlation between Ethnicity and mood is : ', categorize_correlation
     Categories (4, object): ['Chinese', 'Danish', 'Indian', 'Japanese']
     The correlation between Ethnicity and mood is :  Weakly positive ( 0.372509752920904 )
 :::
-:::
 
-::: {.cell .code execution_count="26"}
 ``` python
 import pandas as pd
 
@@ -1058,9 +930,7 @@ print('The correlation between Working industry and stress is : ', categorize_co
     Categories (6, object): ['Aerospace', 'F&B', 'Finance', 'Healthcare', 'Student', 'Technology']
     The correlation between Working industry and stress is :  No correlation ( -0.07978985123910241 )
 :::
-:::
 
-::: {.cell .code execution_count="27"}
 ``` python
 import pandas as pd
 
@@ -1084,9 +954,7 @@ print('The correlation between maritial status and stress is : ', categorize_cor
     Categories (3, object): ['Divorced', 'Separated', 'Single']
     The correlation between maritial status and stress is :  No correlation ( 0.05494827379728323 )
 :::
-:::
 
-::: {.cell .code execution_count="28"}
 ``` python
 
 # extract the features and targets
@@ -1112,21 +980,11 @@ print(df_numeric['mood_avg'].head(1))
     0    4.571429
     Name: mood_avg, dtype: float64
 :::
-:::
 
-::: {.cell .markdown}
-```{=html}
-<h3>Testing and evaluating Linear Regression and Random Forest Regression</h3>
-```
-```{=html}
-<p>Features: Personal particulars of users</p>
-```
-```{=html}
-<p>Target variable (prediction): Average mood level and average stress level</p>
-```
-:::
+**Testing and evaluating Linear Regression and Random Forest Regression**
+**Features: Personal particulars of users**
+**Target variable (prediction): Average mood level and average stress level**
 
-::: {.cell .code execution_count="29"}
 ``` python
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
@@ -1197,9 +1055,7 @@ print("R² score:", r2_RF)
     Mean Squared Error (MSE): 0.9718556481481484
     R² score: 0.8958247847078721
 :::
-:::
 
-::: {.cell .code execution_count="30"}
 ``` python
 
 # extract the features and targets
@@ -1258,15 +1114,9 @@ print("R² score:", r2_RF)
     Mean Squared Error (MSE): 0.015540234788359714
     R² score: 0.9966030656257614
 :::
-:::
 
-::: {.cell .markdown}
-```{=html}
-<h3>After converting non-numeric values to numeric values</h3>
-```
-:::
+**After converting non-numeric values to numeric values**
 
-::: {.cell .code execution_count="31"}
 ``` python
 # extract the features and targets
 x = df_encoded[[

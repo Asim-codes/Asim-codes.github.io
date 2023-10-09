@@ -10,6 +10,9 @@ jupyter:
   nbformat_minor: 0
 ---
 
+Time-Series Analysis of Energy Consumption in Hong Kong: This project involves a comprehensive analysis of energy consumption patterns in Hong Kong. It utilizes various data analysis techniques and machine learning models to understand trends, make predictions, and derive insights from complex energy usage data. 
+---
+
 **Overview \[Key Energy End-use\]**
 
 ``` python

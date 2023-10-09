@@ -18,10 +18,20 @@ jupyter:
   nbformat_minor: 2
   orig_nbformat: 4
 ---
-
-**Sicuro Data Analysis**
-
+A Data driven approach to understand mental health better. 
 ---
+**Sicuro Data Analysis**
+---
+The project is divided into four distinct subparts:
+
+First part of the project focused on data collection. This involved identifying the types of data that needed to be collected to achieve the project’s objectives. Once the data requirements had been established, appropriate methods for collecting, processing, and storing the data were developed. This involved developing data collection protocols, and implementing data management systems.
+
+Second part of the project focused on data analysis. This involved selecting appropriate methods and tools for analyzing the collected data. The analysis have been conducted at different levels, depending on the research questions being addressed. For example, descriptive statistics may have been used to summarize the data, while inferential statistics may have been used to test hypotheses and make predictions for the machine learning stages.
+
+Third part of the project focused on the display of insights. This involved designing an intuitive and user-friendly interface for presenting the results of the data analysis to users. The design of the app took into account the principles of good data visualization and provided users with clear and actionable insights.
+
+Fourth part of the project focused on machine learning. This involved developing and implementing machine learning algorithms to analyze the collected data. Machine learning was used to predict mood and stress levels based on the other data logged by users.
+
 **Initialize firebase**
 
 ``` python

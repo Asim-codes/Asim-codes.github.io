@@ -41,7 +41,7 @@ else:
 ``` python
 df_overview
 ```
-
+![Image](images/nrg_plots/df_overview.png)
 
 **Total Energy Consumption by fuel**
 
@@ -65,6 +65,8 @@ else:
 ``` python
 df_total_fuel
 ```
+![Image](images/nrg_plots/df_total_fuel.png)
+
 
 ::: {.cell .markdown id="zk9r4KhSbDD_"}
 **Energy Consumption in Residential Sector by Fuel**
@@ -94,6 +96,8 @@ else:
 df_residential_fuel
 ```
 
+![Image](images/nrg_plots/df_total_fuel.png)
+
 **Energy Consumption in Commercial Sector by Fuel**
 ``` python
 # Send a GET request to the API endpoint
@@ -118,6 +122,7 @@ else:
 ``` python
 df_commercial_fuel
 ```
+![Image](images/nrg_plots/df_commerical_fuel.png)
 
 ::: {.cell .markdown id="Cq7CNZgjbnz-"}
 **Energy Consumption in Industrial Sector by Fuel**
@@ -147,6 +152,7 @@ else:
 ``` python
 df_industrial_fuel
 ```
+![Image](images/nrg_plots/df_industrial_fuel.png)
 
 **Energy Consumption in Transport Sector by Fuel**
 :::
@@ -175,7 +181,7 @@ else:
 ``` python
 df_transport_fuel
 ```
-
+![Image](images/nrg_plots/df_industrial_fuel.png)
 
 **Total Energy Consumption by Sector**
 :::
@@ -204,6 +210,7 @@ else:
 ``` python
 df_energy_sector
 ```
+![Image](images/nrg_plots/df_energy_sector.png)
 
 **Electricity Consumption by Sector**
 :::
@@ -232,6 +239,7 @@ else:
 ``` python
 df_electricity_sector
 ```
+![Image](images/nrg_plots/df_electricity_sector.png)
 
 **Oil & Coal Products Consumption by Sector**
 :::
@@ -261,6 +269,8 @@ else:
 df_oilcoal_sector
 ```
 
+![Image](images/nrg_plots/df_oilcoal_Sector.png)
+
 **Town Gas & LPG Consumption by Sector**
 :::
 
@@ -288,6 +298,8 @@ else:
 ``` python
 df_gaslpg_sector
 ```
+
+![Image](images/nrg_plots/df_gaslpg_sector.png)
 
 **Total Energy Consumption by End-use**
 :::
@@ -317,6 +329,8 @@ else:
 df_energy_enduse
 ```
 
+![Image](images/nrg_plots/df_energy_enduse.png)
+
 **Electricity Consumption by End-use**
 :::
 
@@ -344,6 +358,8 @@ else:
 ``` python
 df_electricity_enduse
 ```
+
+![Image](images/nrg_plots/df_electricity_enduse.png)
 
 **Oil & Coal Products Consumption by End-use**
 :::
@@ -373,6 +389,8 @@ else:
 df_oilcoal_enduse
 ```
 
+![Image](images/nrg_plots/df_oilcoal_enduse.png)
+
 **Town Gas & Liqueﬁed Petroleum Gas Consumption by End-use**
 :::
 
@@ -400,6 +418,8 @@ else:
 ``` python
 df_gaslpg_enduse
 ```
+
+![Image](images/nrg_plots/df_gaslpg_enduse.png)
 
 Type of Renewable Energy in Hong Kong
 :::
@@ -429,6 +449,8 @@ else:
 df_energy_renewable
 ```
 
+![Image](images/nrg_plots/df_energy_renewable.png)
+
 **Type of Renewable Energy in Hong Kong by Fuel**
 :::
 
@@ -456,6 +478,8 @@ else:
 ``` python
 df_energy_renewable_fuel
 ```
+
+![Image](images/nrg_plots/df_energy_renewable_fuel.png)
 
 ``` python
 dataframes = [df_overview, df_total_fuel, df_residential_fuel, df_commercial_fuel, df_industrial_fuel,
@@ -489,9 +513,7 @@ for df in dataframes:
     (4, 3)
     (3, 5)
 :::
-:::
 
-::: {.cell .code execution_count="35" colab="{\"base_uri\":\"https://localhost:8080/\"}" id="9jzfkLh1x-tO" outputId="3d2269a8-9702-49c2-fbb0-262d4be3c26a"}
 ``` python
 for df in dataframes:
     print(df.isnull().sum())
@@ -688,13 +710,14 @@ df_corr = df_overview.corr()
 fig = go.Figure(data=go.Heatmap(z=df_corr.values.tolist(), x=df_corr.columns.tolist(), y=df_corr.columns.tolist()))
 fig.show()
 ```
-
+![Image](images/nrg_plots/heatplot.png)
 
 ``` python
 # Line plot for 'Trend of Energy End-use over the Years'
 fig = px.line(df_overview, x='Year', y='Energy End-use (TJ)', title='Trend of Energy End-use over the Years')
 fig.show()
 ```
+![Image](images/nrg_plots/energytrend.png)
 
 ``` python
 from sklearn.model_selection import train_test_split
@@ -712,7 +735,6 @@ predictions = model.predict(X_test)
 ```
 :::
 
-::: {.cell .code execution_count="39" colab="{\"base_uri\":\"https://localhost:8080/\"}" id="d1syfQym1ngI" outputId="7e74cf6e-1c60-48af-aff2-d7c40fce9511"}
 ``` python
 print(predictions)
 ```
@@ -722,7 +744,7 @@ print(predictions)
 :::
 :::
 
-::: {.cell .code execution_count="42" colab="{\"base_uri\":\"https://localhost:8080/\"}" id="zW-3YbRhyJan" outputId="5ca6a15c-d2c2-40f5-d902-d4991cfab806"}
+
 ``` python
 from sklearn.metrics import mean_absolute_error, mean_squared_error
 
@@ -738,7 +760,7 @@ print("RMSE: ", np.sqrt(mean_squared_error(y_test, predictions)))
 :::
 :::
 
-::: {.cell .code execution_count="43" colab="{\"base_uri\":\"https://localhost:8080/\",\"height\":542}" id="4e9ZY_3ByOGD" outputId="da30f924-ca6f-4d3c-9838-dbf6dd5f2cd0"}
+
 ``` python
 # Line plot for 'Trend of Energy End-use and GDP over the Years'
 fig = go.Figure()
@@ -746,6 +768,7 @@ fig.add_trace(go.Scatter(x=df_overview['Year'], y=df_overview['Energy End-use (T
 fig.add_trace(go.Scatter(x=df_overview['Year'], y=df_overview['GDP in Hong Kong in chained 2020 HKD (HK$ million)'], mode='lines', name='GDP'))
 fig.show()
 ```
+![Image](images/nrg_plots/energytrnd_gdp.png)
 
 ``` python
 # Grouped bar plot for 'Proportion of Different Fuels Used in Residential Sector Over the Years'
@@ -753,6 +776,7 @@ df_melted = pd.melt(df_residential_fuel, id_vars='Year', value_vars=['Town Gas &
 fig = px.bar(df_melted, x='Year', y='value', color='variable', title='Proportion of Different Fuels Used in Residential Sector Over the Years', labels={'value':'Energy Consumption (TJ)', 'variable':'Fuel Type'})
 fig.show()
 ```
+![Image](images/nrg_plots/proportion_residential.png)
 
 ``` python
 # Line plot for 'Energy Consumption by Sector'
@@ -764,6 +788,7 @@ fig.add_trace(go.Scatter(x=df_energy_sector['Year'], y=df_energy_sector['Transpo
 fig.update_layout(title='Energy Consumption by Sector', xaxis_title='Year', yaxis_title='Energy Consumption (TJ)')
 fig.show()
 ```
+![Image](images/nrg_plots/energy_consumptioon_sector.png)
 
 ``` python
 # Line plot for 'Electricity Consumption by End-use'
@@ -774,6 +799,7 @@ fig.add_trace(go.Scatter(x=df_electricity_enduse['Year'], y=df_electricity_endus
 fig.update_layout(title='Electricity Consumption by End-use', xaxis_title='Year', yaxis_title='Electricity Consumption (TJ)')
 fig.show()
 ```
+![Image](images/nrg_plots/energy_consumption_enduse.png)
 
 ``` python
 # Pie chart for 'Proportion of Different Types of Renewable Energy'
@@ -781,5 +807,8 @@ fig = go.Figure(data=[go.Pie(labels=df_energy_renewable['Type of Renewable Energ
 fig.update_layout(title_text='Proportion of Different Types of Renewable Energy')
 fig.show()
 ```
+![Image](images/nrg_plots/proportion_renweables.png)
+
+
 
 

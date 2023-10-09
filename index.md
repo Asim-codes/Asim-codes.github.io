@@ -11,4 +11,4 @@
 <img src="images/sicuro_plots/scipy_heatmap.png?raw=true"/>
 
 ---
-[Analyzing Energy Consumption Patterns in Hong Kong - A Time Series Approach](/Analyzing Energy Consumption Patterns in Hong Kong - A Time Series Approach.md)
+[Analyzing Energy Consumption Patterns in Hong Kong - A Time Series Approach](/Analyzing_Energy_Consumption_Patterns_in_Hong_Kong.md)
